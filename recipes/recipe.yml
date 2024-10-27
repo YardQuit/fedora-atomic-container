@@ -19,26 +19,29 @@ modules:
     snippets:
       # install repos
       - sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://downloads.1password.com/linux/keys/1password.asc" > /etc/yum.repos.d/1password.repo'
-      - wget https://fedorapeople.org/groups/virt/virtio-win/virtio-win.repo -O /etc/yum.repos.d/virtio-win.repo
+      - sh -c wget https://fedorapeople.org/groups/virt/virtio-win/virtio-win.repo -O /etc/yum.repos.d/virtio-win.repo
+
       # create standard /mnt directories
-      - mkdir -p /mnt/{sshfsmnt_,localmnt_}{1..5} 
-      - chmod 777 /mnt/{sshfsmnt_,localmnt_}{1..5} 
-      - touch /mnt/{sshfsmnt_,localmnt_}{1..5}/no_mount
-      - mkdir -p /mnt/bitlockr_{1..2}
-      - chmod 777 /mnt/bitlockr_{1..2}
-      - touch /mnt/bitlockr_{1..2}/no_mount
+      - sh -c mkdir -p /var/mnt/{sshfsmnt_,localmnt_}{1..5} 
+      - sh -c chmod 777 /var/mnt/{sshfsmnt_,localmnt_}{1..5} 
+      - sh -c touch /var/mnt/{sshfsmnt_,localmnt_}{1..5}/no_mount
+      - sh -c mkdir -p /var/mnt/bitlockr_{1..2}
+      - sh -c chmod 777 /var/mnt/bitlockr_{1..2}
+      - sh -c touch /var/mnt/bitlockr_{1..2}/no_mount
+
       # create standard $HOME directories
-      - mkdir -p "$HOME"/.ssh/keys
-      - mkdir -p "$HOME"/.gnupg
-      - mkdir -p "$HOME"/Appimages
-      - mkdir -p "$HOME"/Miscellaneous
-      - mkdir -p "$HOME"/Mounts
-      - mkdir -p "$HOME"/Security
-      - mkdir -p "$HOME"/Workbench
+      - sh -c mkdir -p "$HOME"/.ssh/keys
+      - sh -c mkdir -p "$HOME"/.gnupg
+      - sh -c mkdir -p "$HOME"/Appimages
+      - sh -c mkdir -p "$HOME"/Miscellaneous
+      - sh -c mkdir -p "$HOME"/Mounts
+      - sh -c mkdir -p "$HOME"/Security
+      - sh -c mkdir -p "$HOME"/Workbench
+
       # configure GNOME settings
-      - gsettings set org.gnome.desktop.interface font-name "Cascadia Mono 11"
-      - gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-      - gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true
+      - sh -c gsettings set org.gnome.desktop.interface font-name "Cascadia Mono 11"
+      - sh -c gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+      - sh -c gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true
 
   - type: rpm-ostree
     repos:
