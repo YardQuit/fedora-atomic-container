@@ -22,26 +22,26 @@ modules:
       - sh -c wget https://fedorapeople.org/groups/virt/virtio-win/virtio-win.repo -O /etc/yum.repos.d/virtio-win.repo
 
       # create standard /mnt directories
-      - sh -c mkdir -p /var/mnt/{sshfsmnt_,localmnt_}{1..5} 
-      - sh -c chmod 777 /var/mnt/{sshfsmnt_,localmnt_}{1..5} 
-      - sh -c touch /var/mnt/{sshfsmnt_,localmnt_}{1..5}/no_mount
-      - sh -c mkdir -p /var/mnt/bitlockr_{1..2}
-      - sh -c chmod 777 /var/mnt/bitlockr_{1..2}
-      - sh -c touch /var/mnt/bitlockr_{1..2}/no_mount
+      - mkdir -p /var/mnt/{sshfsmnt_,localmnt_}{1..5} 
+      - chmod 777 /var/mnt/{sshfsmnt_,localmnt_}{1..5} 
+      - touch /var/mnt/{sshfsmnt_,localmnt_}{1..5}/no_mount
+      - mkdir -p /var/mnt/bitlockr_{1..2}
+      - chmod 777 /var/mnt/bitlockr_{1..2}
+      - touch /var/mnt/bitlockr_{1..2}/no_mount
 
       # create standard $HOME directories
-      - sh -c mkdir -p "$HOME"/.ssh/keys
-      - sh -c mkdir -p "$HOME"/.gnupg
-      - sh -c mkdir -p "$HOME"/Appimages
-      - sh -c mkdir -p "$HOME"/Miscellaneous
-      - sh -c mkdir -p "$HOME"/Mounts
-      - sh -c mkdir -p "$HOME"/Security
-      - sh -c mkdir -p "$HOME"/Workbench
+      - mkdir -p "$HOME"/.ssh/keys
+      - mkdir -p "$HOME"/.gnupg
+      - mkdir -p "$HOME"/Appimages
+      - mkdir -p "$HOME"/Miscellaneous
+      - mkdir -p "$HOME"/Mounts
+      - mkdir -p "$HOME"/Security
+      - mkdir -p "$HOME"/Workbench
 
       # configure GNOME settings
-      - sh -c gsettings set org.gnome.desktop.interface font-name "Cascadia Mono 11"
-      - sh -c gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-      - sh -c gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true
+      - gsettings set org.gnome.desktop.interface font-name "Cascadia Mono 11"
+      - gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+      - gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true
 
   - type: rpm-ostree
     repos:
