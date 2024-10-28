@@ -117,6 +117,8 @@ modules:
   - type: bling
     install:
       - 1password
+      - ublue-update
+      - dconf-update-service
 
   - type: systemd
     system:
@@ -130,12 +132,12 @@ modules:
   - type: script
     snippets:
       # create standard /mnt directories
-      - mkdir -p /var/mnt/{sshfsmnt_,localmnt_}{1..5} 
-      - chmod 777 /var/mnt/{sshfsmnt_,localmnt_}{1..5} 
-      - touch /var/mnt/{sshfsmnt_,localmnt_}{1..5}/no_mount
-      - mkdir -p /var/mnt/bitlockr_{1..2}
-      - chmod 777 /var/mnt/bitlockr_{1..2}
-      - touch /var/mnt/bitlockr_{1..2}/no_mount
+      - "mkdir -p /var/mnt/{sshfsmnt_,localmnt_}{1..5}" 
+      - "chmod 777 /var/mnt/{sshfsmnt_,localmnt_}{1..5}"
+      - "touch /var/mnt/{sshfsmnt_,localmnt_}{1..5}/no_mount"
+      - "mkdir -p /var/mnt/bitlockr_{1..2}"
+      - "chmod 777 /var/mnt/bitlockr_{1..2}"
+      - "touch /var/mnt/bitlockr_{1..2}/no_mount"
 
       # configure GNOME settings
       - "gsettings set org.gnome.desktop.interface font-name 'Cascadia Mono 11'"
