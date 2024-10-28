@@ -92,25 +92,33 @@ modules:
       repo-name: flathub
       repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
-        - com.obsproject.Studio
         - com.github.wwmm.easyeffects
-        - io.freetubeapp.FreeTube
+        - hu.irl.cameractrls
         - org.gnome.World.PikaBackup
         - com.brave.Browser
         - io.github.zen_browser.zen
         - io.github.ungoogled_software.ungoogled_chromium
-        - hu.irl.cameractrls
-        # - io.podman_desktop.PodmanDesktop
-        # - com.valvesoftware.SteamLink
-        # - org.wezfurlong.wezterm
+      # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
+      # only normal flatpak applications are (like Floorp Lightning web browser in this example).
+      # Installing different branches of the same Flatpak is not supported.
+      remove:
+      # - org.gnome.eog
+    user:
+      # If no repo information is specified, Flathub will be used by default
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub
+      repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
+      install:
+        - com.obsproject.Studio
+        - io.freetubeapp.FreeTube
         # - org.gimp.GIMP
         # - org.kde.krita
         # - fr.handbrake.ghb
         # - io.github.nokse22.asciidraw
         # - org.freecadweb.FreeCAD
-      # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
-      # only normal flatpak applications are (like Floorp Lightning web browser in this example).
-      # Installing different branches of the same Flatpak is not supported.
+        # - com.valvesoftware.SteamLink
+        # - io.podman_desktop.PodmanDesktop
+        # - org.wezfurlong.wezterm
       remove:
       # - org.gnome.eog
 
@@ -118,31 +126,25 @@ modules:
     install:
       - 1password
 
-  # - type: systemd
-  #   system:
-  #     enabled:
-  #       - clamav-freshclam.service
-  #       - fail2ban.service
-  #       - tuned.service
-  #       - docker.service
-  #       - fstrim.timer
+  - type: systemd
+    system:
+      enabled:
+        - clamav-freshclam.service
+        - fail2ban.service
+        - tuned.service
+        - docker.service
+        - fstrim.timer
 
   - type: script
     snippets:
       # enabling virtualization services
       - "for drv in qemu interface network nodedev nwfilter secret storage; do systemctl enable virt${drv}d.service; systemctl enable virt${drv}d{,-ro,-admin}.socket; done "
-      - "systemctl enable clamav-freshclam.service"
-      - "systemctl enable fail2ban.service"
-      - "systemctl enable tuned.service"
-      - "systemctl enable docker.service"
-      - "systemctl enable fstrim.timer"
-      
+    scripts:
+      - settings.sh
+    
   # - type: gnome-extensions
   #   install:
       # - Tiling Assistant # Case sensitive name of the extention (https://extensions.gnome.org/)
 
-    scripts:
-      - settings.sh
-    
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
