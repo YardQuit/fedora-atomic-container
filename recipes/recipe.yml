@@ -150,8 +150,8 @@ modules:
       # enabling virtualization services
       - "for drv in qemu interface network nodedev nwfilter secret storage; do systemctl enable virt${drv}d.service; systemctl enable virt${drv}d{,-ro,-admin}.socket; done "
       
-  - type: gnome-extensions
-    install:
+  # - type: gnome-extensions
+  #   install:
       # - Tiling Assistant # Case sensitive name of the extention (https://extensions.gnome.org/)
 
   - scripts:
