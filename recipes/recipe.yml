@@ -154,8 +154,8 @@ modules:
   #   install:
       # - Tiling Assistant # Case sensitive name of the extention (https://extensions.gnome.org/)
 
-  - scripts:
-    - create_dirs.sh
+    scripts:
+      - create_dirs.sh
     
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
