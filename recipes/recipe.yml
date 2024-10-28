@@ -152,7 +152,7 @@ modules:
       
   - type: gnome-extensions
     install:
-      - Pop Shell
+      # - Tiling Assistant # Case sensitive name of the extention (https://extensions.gnome.org/)
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
