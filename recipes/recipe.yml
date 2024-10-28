@@ -37,26 +37,24 @@ modules:
       - chmod 777 /var/mnt/bitlockr_{1..2}
       - touch /var/mnt/bitlockr_{1..2}/no_mount
 
-      # create standard $HOME directories
-      - mkdir -p "$HOME"/.ssh/keys
-      - mkdir -p "$HOME"/.gnupg
-      - mkdir -p "$HOME"/Appimages
-      - mkdir -p "$HOME"/Miscellaneous
-      - mkdir -p "$HOME"/Mounts
-      - mkdir -p "$HOME"/Security
-      - mkdir -p "$HOME"/Workbench
-
       # configure GNOME settings
-      - gsettings set org.gnome.desktop.interface font-name "Cascadia Mono 11"
-      - gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-      - gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true
+      - "gsettings set org.gnome.desktop.interface font-name 'Cascadia Mono 11'"
+      - "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+      - "gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true"
+
+      # configuring serivces
+      - "systemctl enable clamav-freshclam.service"
+      - "systemctl enable fstrim.timer"
+      - "systemctl enable fail2ban"
+      - "systemctl enable tuned"
+      - "for drv in qemu interface network nodedev nwfilter secret storage; do systemctl enable virt${drv}d.service; systemctl enable virt${drv}d{,-ro,-admin}.socket; done "
 
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
     install:
       # security and backup
-      # - 1password
+      - 1password
       - clamav
       - clamav-freshclam
       - fail2ban
@@ -109,22 +107,22 @@ modules:
       # repo-name: flathub
       # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
+        - com.obsproject.Studio
+        - com.github.wwmm.easyeffects
+        - io.freetubeapp.FreeTube
+        - org.gnome.World.PikaBackup
+        - com.brave.Browser
+        - io.github.zen_browser.zen
+        - io.github.ungoogled_software.ungoogled_chromium
+        - hu.irl.cameractrls
         # - io.podman_desktop.PodmanDesktop
-        # - com.obsproject.Studio
+        # - com.valvesoftware.SteamLink
+        # - org.wezfurlong.wezterm
         # - org.gimp.GIMP
         # - org.kde.krita
         # - fr.handbrake.ghb
         # - io.github.nokse22.asciidraw
-        # - com.github.wwmm.easyeffects
         # - org.freecadweb.FreeCAD
-        - io.freetubeapp.FreeTube
-        # - org.gnome.World.PikaBackup
-        # - com.brave.Browser
-        # - com.valvesoftware.SteamLink
-        # - io.github.zen_browser.zen
-        # - hu.irl.cameractrls
-        # - org.wezfurlong.wezterm
-        - io.github.ungoogled_software.ungoogled_chromium
       # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
       # only normal flatpak applications are (like Floorp Lightning web browser in this example).
       # Installing different branches of the same Flatpak is not supported.
