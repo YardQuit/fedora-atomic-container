@@ -118,44 +118,31 @@ modules:
     install:
       - 1password
 
-  - type: script
-    snippets:
-      - "freshclam"
-      - 'echo -e "[DEFAULT]\nignoreip = 127.0.0.1 ::1\nbantime = 3600\nfindtime = 600\nmaxretry = 5\n\n[sshd]\nenabled = true" > /etc/fail2ban/jail.local'
-
-  - type: systemd
-    system:
-      enabled:
-        - clamav-freshclam.service
-        - fstrim.timer
-        - fail2ban
-        - tuned
-        - docker
+  # - type: systemd
+  #   system:
+  #     enabled:
+  #       - clamav-freshclam.service
+  #       - fail2ban.service
+  #       - tuned.service
+  #       - docker.service
+  #       - fstrim.timer
 
   - type: script
     snippets:
-      # # create standard /mnt directories
-      # - "mkdir -p /var/mnt/{sshfsmnt_,localmnt_}{1..5}" 
-      # - "chmod 777 /var/mnt/{sshfsmnt_,localmnt_}{1..5}"
-      # - "touch /var/mnt/{sshfsmnt_,localmnt_}{1..5}/no_mount"
-      # - "mkdir -p /var/mnt/bitlockr_{1..2}"
-      # - "chmod 777 /var/mnt/bitlockr_{1..2}"
-      # - "touch /var/mnt/bitlockr_{1..2}/no_mount"
-
-      # # configure GNOME settings
-      # - "gsettings set org.gnome.desktop.interface font-name 'Cascadia Mono 11'"
-      # - "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-      # - "gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true"
-
       # enabling virtualization services
       - "for drv in qemu interface network nodedev nwfilter secret storage; do systemctl enable virt${drv}d.service; systemctl enable virt${drv}d{,-ro,-admin}.socket; done "
+      - "systemctl enable clamav-freshclam.service"
+      - "systemctl enable fail2ban.service"
+      - "systemctl enable tuned.service"
+      - "systemctl enable docker.service"
+      - "systemctl enable fstrim.timer"
       
   # - type: gnome-extensions
   #   install:
       # - Tiling Assistant # Case sensitive name of the extention (https://extensions.gnome.org/)
 
     scripts:
-      - create_dirs.sh
+      - settings.sh
     
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
