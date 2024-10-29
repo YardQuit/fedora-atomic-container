@@ -191,6 +191,10 @@ modules:
     scripts:
       - settings.sh
       - services.sh
+    snippets:
+      - "cargo install --locked blue-build"
+      - "bluebuild completions bash | tee /usr/share/bash-completion/completions/bluebuild"
+
     
   # - type: gnome-extensions
   #   install:
