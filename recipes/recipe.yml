@@ -134,6 +134,8 @@ modules:
       - services.sh
     snippets:
       - "rustup-init -y"
+      - 'echo ". "$HOME/.cargo/env" | tee -a "$HOME"/.bashrc'
+      - 'source "$HOME"/.bashrc'
       - "cargo install --locked blue-build"
       - "bluebuild completions bash | tee /usr/share/bash-completion/completions/bluebuild"
     
