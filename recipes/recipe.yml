@@ -79,6 +79,7 @@ modules:
       - fzf
       - dislocker
       - rustup
+      - cargo
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
@@ -134,8 +135,6 @@ modules:
       - services.sh
     snippets:
       - "rustup-init -y"
-      - 'echo ". "$HOME/.cargo/env" | tee -a "$HOME"/.bashrc'
-      - 'source "$HOME"/.bashrc'
       - "cargo install --locked blue-build"
       - "bluebuild completions bash | tee /usr/share/bash-completion/completions/bluebuild"
     
