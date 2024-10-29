@@ -112,14 +112,6 @@ modules:
       install:
         - com.obsproject.Studio
         - io.freetubeapp.FreeTube
-        # - org.gimp.GIMP
-        # - org.kde.krita
-        # - fr.handbrake.ghb
-        # - io.github.nokse22.asciidraw
-        # - org.freecadweb.FreeCAD
-        # - com.valvesoftware.SteamLink
-        # - io.podman_desktop.PodmanDesktop
-        # - org.wezfurlong.wezterm
       remove:
       # - org.gnome.eog
 
@@ -135,64 +127,13 @@ modules:
         - tuned.service
         - docker.service
         - fstrim.timer
-        # - virtinterfaced-admin.socket
-        # - virtinterfaced-ro.socket
-        # - virtinterfaced.service
-        # - virtinterfaced.socket
-        # - virtlockd-admin.socket
-        # - virtlockd.service
-        # - virtlockd.socket
-        # - virtlogd-admin.socket
-        # - virtlogd.service
-        # - virtlogd.socket
-        # - virtlxcd-admin.socket
-        # - virtlxcd-ro.socket
-        # - virtlxcd.service
-        # - virtlxcd.socket
-        # - virtnetworkd-admin.socket
-        # - virtnetworkd-ro.socket
-        # - virtnetworkd.service
-        # - virtnetworkd.socket
-        # - virtnodedevd-admin.socket
-        # - virtnodedevd-ro.socket
-        # - virtnodedevd.service
-        # - virtnodedevd.socket
-        # - virtnwfilterd-admin.socket
-        # - virtnwfilterd-ro.socket
-        # - virtnwfilterd.service
-        # - virtnwfilterd.socket
-        # - virtproxyd-admin.socket
-        # - virtproxyd-ro.socket
-        # - virtproxyd.service
-        # - virtproxyd.socket
-        # - virtproxyd-tcp.socket
-        # - virtproxyd-tls.socket
-        # - virtqemud-admin.socket
-        # - virtqemud-ro.socket
-        # - virtqemud.service
-        # - virtqemud.socket
-        # - virtsecretd-admin.socket
-        # - virtsecretd-ro.socket
-        # - virtsecretd.service
-        # - virtsecretd.socket
-        # - virtstoraged-admin.socket
-        # - virtstoraged-ro.socket
-        # - virtstoraged.service
-        # - virtstoraged.socket
-        # - virtvboxd-admin.socket
-        # - virtvboxd-ro.socket
-        # - virtvboxd.service
-        # - virtvboxd.socket
-        # - virtxend-admin.socket
-        # - virtxend-ro.socket
-        # - virtxend.service
-        # - virtxend.socket
 
   - type: script
     scripts:
       - settings.sh
       - services.sh
     snippets:
+      - "rustup-init -y"
       - "cargo install --locked blue-build"
       - "bluebuild completions bash | tee /usr/share/bash-completion/completions/bluebuild"
     
