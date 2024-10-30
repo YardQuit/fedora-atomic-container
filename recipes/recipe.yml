@@ -135,11 +135,11 @@ modules:
         # - tuned.service
         - docker.service
         - fstrim.timer
-        - systemctl enable power-profiles-daemon
-        - enable cosmic-greeter
+        - power-profiles-daemon
+        - cosmic-greeter
       disable:
-        - disable gdm
-        - disable sddm
+        - gdm
+        - sddm
 
   - type: script
     scripts:
