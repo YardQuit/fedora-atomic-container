@@ -37,6 +37,12 @@ modules:
     optfix:
       - 1Password
     install:
+      # gnome extra
+      - adw-gtk3-theme
+      - gnome-extensions-app
+      - gnome-screenshot
+      - gnome-shell-extension-pop-shell
+      - gnome-tweaks
       # security and backup
       - 1password
       - clamav
@@ -64,16 +70,11 @@ modules:
       - tuned
       - virt-manager
       - virtio-win
-      # gnome extra
-      - adw-gtk3-theme
-      - gnome-extensions-app
-      - gnome-screenshot
-      - gnome-shell-extension-pop-shell
-      - gnome-tweaks
       # extra
       - starship
       - helix
       - neovim
+      - inxi
       - fastfetch
       - chromium
       - fzf
@@ -134,7 +135,6 @@ modules:
       - settings.sh
       - services.sh
     snippets:
-      - "rustup-init -y"
       - "cargo install --locked blue-build"
       - "bluebuild completions bash | tee /usr/share/bash-completion/completions/bluebuild"
     
