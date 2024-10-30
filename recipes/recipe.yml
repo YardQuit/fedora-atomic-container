@@ -47,6 +47,12 @@ modules:
       - gnome-keyring
       - greetd
       - greetd-selinux
+      - gdm
+      - sddm
+      - pinentry-gnome3
+      - pinentry-qt
+      - pinentry-tty
+      - pinentry-enacs
       # personal - security and backup
       - 1password
       - clamav
