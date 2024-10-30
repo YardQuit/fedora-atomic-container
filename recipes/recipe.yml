@@ -19,7 +19,7 @@ modules:
     fonts:
       nerd-fonts:
         # cosmic desktop environment
-        - FireMono
+        - FiraMono
         - FiraCode
         # personal fonts
         - GeistMono
