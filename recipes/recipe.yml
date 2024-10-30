@@ -52,7 +52,7 @@ modules:
       - pinentry-gnome3
       - pinentry-qt
       - pinentry-tty
-      - pinentry-enacs
+      - pinentry-emacs
       # personal - security and backup
       - 1password
       - clamav
