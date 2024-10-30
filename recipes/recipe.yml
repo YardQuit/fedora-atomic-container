@@ -45,7 +45,9 @@ modules:
       - gnome-keyring
       - NetworkManager-tui
       - NetworkManager-openvpn
-      - gdm
+      - lightdm-gtk
+      - lightdm-gtk-greeter-settings
+      # - gdm
       # personal - security and backup
       - 1password
       - clamav
@@ -126,9 +128,10 @@ modules:
         - docker.service
         - fstrim.timer
         - power-profiles-daemon.service
-        - gdm.service
+        - lightdm-gtk
+        # - gdm.service
       disable:
-        - cosmic-greeter
+        - cosmic-greeter.service
 
   - type: script
     scripts:
