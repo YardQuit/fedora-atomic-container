@@ -45,6 +45,8 @@ modules:
       - NetworkManager-openvpn
       - power-profiles-daemon
       - gnome-keyring
+      - greetd
+      - greetd-selinux
       # personal - security and backup
       - 1password
       - clamav
