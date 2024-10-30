@@ -45,6 +45,7 @@ modules:
       - gnome-keyring
       - NetworkManager-tui
       - NetworkManager-openvpn
+      - gdm
       # personal - security and backup
       - 1password
       - clamav
@@ -124,9 +125,10 @@ modules:
         # - tuned.service
         - docker.service
         - fstrim.timer
-        - power-profiles-daemon
-        - cosmic-greeter
+        - power-profiles-daemon.service
+        - gdm.service
       disable:
+        - cosmic-greeter
 
   - type: script
     scripts:
