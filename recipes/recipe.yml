@@ -45,14 +45,6 @@ modules:
       - NetworkManager-openvpn
       - power-profiles-daemon
       - gnome-keyring
-      - greetd
-      - greetd-selinux
-      - gdm
-      - sddm
-      - pinentry-gnome3
-      - pinentry-qt
-      - pinentry-tty
-      - pinentry-emacs
       # personal - security and backup
       - 1password
       - clamav
@@ -89,6 +81,10 @@ modules:
       - dislocker
       - rustup
       - cargo
+      - pinentry-gnome3
+      - pinentry-qt
+      - pinentry-tty
+      - pinentry-emacs
     remove:
 
   - type: default-flatpaks
