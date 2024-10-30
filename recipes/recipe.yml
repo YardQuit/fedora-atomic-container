@@ -41,6 +41,8 @@ modules:
       # cosmic
       - power-profiles-daemon
       - cosmic-desktop
+      - gnome-keyring
+      - NetworkManager-openvpn
       # # gnome extra
       # - adw-gtk3-theme
       # - gnome-extensions-app
@@ -134,6 +136,10 @@ modules:
         - docker.service
         - fstrim.timer
         - systemctl enable power-profiles-daemon
+        - enable cosmic-greeter
+      disable:
+        - disable gdm
+        - disable sddm
 
   - type: script
     scripts:
