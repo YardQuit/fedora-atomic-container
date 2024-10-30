@@ -37,6 +37,9 @@ modules:
     optfix:
       - 1Password
     install:
+      # cosmic
+      - power-profiles-daemon
+      - cosmic-desktop
       # gnome extra
       - adw-gtk3-theme
       - gnome-extensions-app
@@ -67,7 +70,7 @@ modules:
       - libvirt
       - qemu
       - swtpm-tools
-      - tuned
+      # - tuned
       - virt-manager
       - virtio-win
       # extra
@@ -126,9 +129,10 @@ modules:
       enabled:
         - clamav-freshclam.service
         - fail2ban.service
-        - tuned.service
+        # - tuned.service
         - docker.service
         - fstrim.timer
+        - systemctl enable power-profiles-daemon
 
   - type: script
     scripts:
