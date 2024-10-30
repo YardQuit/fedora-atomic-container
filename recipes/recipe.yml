@@ -45,9 +45,6 @@ modules:
       - gnome-keyring
       - NetworkManager-tui
       - NetworkManager-openvpn
-      - lightdm-gtk
-      - lightdm-gtk-greeter-settings
-      # - gdm
       # personal - security and backup
       - 1password
       - clamav
@@ -71,7 +68,7 @@ modules:
       - swtpm-tools
       - virt-manager
       - virtio-win
-      # - tuned
+      - tuned
       # personal - extra
       - starship
       - helix
@@ -124,14 +121,13 @@ modules:
         - rpm-ostreed-automatic.timer
         - clamav-freshclam.service
         - fail2ban.service
-        # - tuned.service
+        - tuned.service
         - docker.service
         - fstrim.timer
         - power-profiles-daemon.service
-        - lightdm-gtk
-        # - gdm.service
       disable:
         - cosmic-greeter.service
+        - cosmic-greeter.daemon.service
 
   - type: script
     scripts:
