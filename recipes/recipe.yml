@@ -19,8 +19,12 @@ modules:
     fonts:
       nerd-fonts:
         # cosmic desktop environment
+        - FireMono
         - FiraCode
-         
+        # personal fonts
+        - GeistMono
+        - Lilex
+        
   - type: script
     snippets:
       # cosmic desktop environment
