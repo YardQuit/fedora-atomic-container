@@ -86,6 +86,7 @@ modules:
       - pinentry-qt
       - pinentry-tty
       - pinentry-emacs
+      - translate-shell
     remove:
 
   - type: bling
