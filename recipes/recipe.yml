@@ -154,12 +154,14 @@ modules:
 
 stages:
   - name: bluebuild
-    from: docker.io/library/rust:1.77
+    # from: docker.io/library/rust:1.77
+    from: docker.io/library/rust
     modules:
       - type: script
         no-cache: true
         snippets:
-          - cargo install --locked --all-features blue-build  
+          - "cargo install --locked --all-features blue-build"
+          - "bluebuild completions bash | tee /usr/share/bash-completion/completions/bluebuild"
     
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
