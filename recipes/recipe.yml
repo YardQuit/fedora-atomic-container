@@ -136,7 +136,6 @@ modules:
         - docker.service
         - fstrim.timer
       disable:
-        - display-manager.service
         - cosmic-greeter.service
         - cosmic-greeter.daemon.service
 
