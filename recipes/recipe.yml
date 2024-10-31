@@ -51,8 +51,6 @@ modules:
       - gnome-keyring
       # personal - security and backup
       - 1password
-      - clamav
-      - clamav-freshclam
       - fail2ban
       - pam_yubico
       - ykocli
@@ -77,19 +75,23 @@ modules:
       - starship
       - helix
       - neovim
+      - ptyxis
       - inxi
       - fastfetch
       - chromium
       - fzf
       - sshfs
       - dislocker
-      # - rustup
-      # - cargo
       - pinentry-gnome3
       - pinentry-qt
       - pinentry-tty
       - pinentry-emacs
     remove:
+
+  - type: bling
+    install:
+      # personal bling not being configured at build time
+      - 1password
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
@@ -121,11 +123,6 @@ modules:
         - io.freetubeapp.FreeTube
       remove:
 
-  - type: bling
-    install:
-      # personal bling
-      - 1password
-
   - type: systemd
     system:
       enabled:
@@ -133,7 +130,6 @@ modules:
         - power-profiles-daemon.service
         # personal services
         - rpm-ostreed-automatic.timer
-        - clamav-freshclam.service
         - fail2ban.service
         - tuned.service
         - docker.service
@@ -147,14 +143,9 @@ modules:
       # personal scripts
       - settings.sh
       - services.sh
-    snippets:
-      # personal extras
-      # - "cargo install --locked blue-build"
-      # - "bluebuild completions bash | tee /usr/share/bash-completion/completions/bluebuild"
 
 stages:
   - name: bluebuild
-    # from: docker.io/library/rust:1.77
     from: docker.io/library/rust
     modules:
       - type: script
