@@ -142,7 +142,6 @@ modules:
   - type: script
     scripts:
       # personal scripts
-      - partitions.sh
       - services.sh
 
 stages:
