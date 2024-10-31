@@ -3,6 +3,7 @@ set -oue pipefail
 
 # crypttab
 sudo cp /etc/crypttab /etc/crypttab.bak
+sudo sed -i 's/none$/none discard/g' /etc/crypttab
 sudo tee -a /etc/crypttab <<EOF
 # manually added
 luks-bccaf371-16c7-45fd-9b1a-1dc540d37218 UUID=bccaf371-16c7-45fd-9b1a-1dc540d37218 none discard
@@ -12,9 +13,9 @@ EOF
 
 # fstab
 sudo cp /etc/fstab /etc/fstab.bak
+sudo sed -i '\/home /d' /etc/fstab
 sudo tee -a /etc/fstab <<EOF
 UUID=a1f3db46-7cbc-4fe7-8940-da1238319914 /home                   btrfs   subvol=home,compress=zstd:1,x-systemd.device-timeout=0 0 0
-UUID=2a8f21d0-de05-48dc-bf5b-6487504c4c07 /mnt/localmnt_1         ext4    defaults,x-systemd.device-timeout=0 1 2
 UUID=f6a0a9aa-3868-44fc-b759-1edb8577cdfc /var/lib/libvirt        btrfs   subvol=var_lib_libvirt,compress=zstd:1,x-systemd.device-timeout=0 0 0
+UUID=2a8f21d0-de05-48dc-bf5b-6487504c4c07 /mnt/localmnt_1         ext4    defaults,x-systemd.device-timeout=0 1 2
 EOF
-
