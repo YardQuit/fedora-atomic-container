@@ -49,6 +49,7 @@ modules:
       - NetworkManager-openvpn
       - power-profiles-daemon
       - gnome-keyring
+      - pinentry-gnome3
       # personal - security and backup
       - 1password
       - fail2ban
@@ -82,7 +83,6 @@ modules:
       - fzf
       - sshfs
       - dislocker
-      - pinentry-gnome3
       - pinentry-qt
       - pinentry-tty
       - pinentry-emacs
