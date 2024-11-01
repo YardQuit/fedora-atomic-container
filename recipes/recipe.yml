@@ -72,7 +72,7 @@ modules:
       - swtpm-tools
       - virt-manager
       - virtio-win
-      - tuned
+      # - tuned
       # personal - extra
       - starship
       - helix
@@ -133,7 +133,7 @@ modules:
         # personal services
         - rpm-ostreed-automatic.timer
         - fail2ban.service
-        - tuned.service
+        # - tuned.service
         - docker.service
         - fstrim.timer
       disable:
