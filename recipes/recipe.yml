@@ -144,7 +144,6 @@ modules:
       # personal scripts
       - services.sh
       - yubico.sh
-      - container.sh
 
 stages:
   - name: bluebuild
